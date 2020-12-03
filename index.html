@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    <title>Stimulus Chartjs</title>
+    <script type="module" src="./src/index.js" defer></script>
+    <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js" defer></script>
+
+    <script type="module" defer>
+      import Chart from './src/index.js'
+
+      const application = Stimulus.Application.start()
+      application.register('chart', Chart)
+    </script>
+
+    <style>
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        display: inline-block;
+        margin: 0 10px;
+      }
+
+      a {
+        color: #667eea;
+        display: inline-block;
+      }
+
+      .badges a {
+        margin: 0 0.25rem;
+      }
+
+      pre code {
+        border-radius: 0.5rem;
+        text-align: left;
+        font-family: Menlo, 'Courier New', Courier, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full max-w-6xl mx-auto my-24 p-4">
+      <h1 class="text-center mb-8 text-5xl font-bold">Stimulus Chartjs</h1>
+
+      <p class="text-center mb-4">
+        A Stimulus controller to deal with chart.js.
+      </p>
+
+      <p class="text-center badges">
+        <a href="https://www.npmjs.com/package/stimulus-chartjs">
+          <img src="https://img.shields.io/npm/dt/stimulus-chartjs.svg" />
+        </a>
+
+        <a href="https://www.npmjs.com/package/stimulus-chartjs">
+          <img src="https://img.shields.io/npm/v/stimulus-chartjs.svg" />
+        </a>
+
+        <a href="https://github.com/stimulus-components/stimulus-chartjs">
+          <img src="https://github.com/stimulus-components/stimulus-chartjs/workflows/Lint/badge.svg" />
+        </a>
+
+        <a href="https://github.com/stimulus-components/stimulus-chartjs">
+          <img src="https://img.shields.io/github/license/stimulus-components/stimulus-chartjs.svg" />
+        </a>
+
+        <a href="https://stimulus-chartjs.netlify.com/">
+          <img src="https://api.netlify.com/api/v1/badges/26d5363d-d699-4558-abb4-2267919dbe59/deploy-status" />
+        </a>
+      </p>
+
+      <h2 class="text-center text-2xl font-bold my-4">Essential links</h2>
+
+      <ul class="text-center mb-8">
+        <li>
+          <a href="https://github.com/stimulus-components/stimulus-chartjs" target="_blank" rel="noopener">
+            Github
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.npmjs.com/package/stimulus-chartjs" target="_blank" rel="noopener">
+            Npm
+          </a>
+        </li>
+      </ul>
+
+      <section class="mt-16">
+        <div
+          class="mb-8"
+          data-controller="chart"
+          data-chart-data="{'type': 'line', 'data': { 'labels': ['January', 'February', 'March', 'April', 'May', 'June', 'July'], 'datasets': [{ 'label': 'My First dataset', 'backgroundColor': 'transparent', 'borderColor': '#3B82F6', 'data': [37, 83, 78, 54, 12, 5, 99] }] } }"
+        >
+          <canvas data-target="chart.canvas"></canvas>
+        </div>
+
+        <canvas
+          data-controller="chart"
+          data-chart-data="{'type': 'line', 'data': { 'labels': ['August', 'September', 'October', 'November', 'December'], 'datasets': [{ 'label': 'My Second dataset', 'backgroundColor': 'transparent', 'borderColor': '#EF4444', 'data': [54, 81, 34, 91, 12, 23] }] } }"
+        ></canvas>
+      </section>
+    </div>
+  </body>
+</html>

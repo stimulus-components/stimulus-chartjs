@@ -4,7 +4,7 @@
 [![](https://img.shields.io/npm/v/stimulus-chartjs.svg)](https://www.npmjs.com/package/stimulus-chartjs)
 [![](https://github.com/stimulus-components/stimulus-chartjs/workflows/Lint/badge.svg)](https://github.com/stimulus-components/stimulus-chartjs)
 [![](https://img.shields.io/github/license/stimulus-components/stimulus-chartjs.svg)](https://github.com/stimulus-components/stimulus-chartjs)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/26d5363d-d699-4558-abb4-2267919dbe59/deploy-status)](https://app.netlify.com/sites/stimulus-chartjs/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f75f37fa-c1c7-42c3-8266-27d11c67c2b1/deploy-status)](https://app.netlify.com/sites/stimulus-chartjs/deploys)
 
 ## Getting started
 

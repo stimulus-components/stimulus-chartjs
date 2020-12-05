@@ -3,12 +3,16 @@ import Chart from 'chart.js'
 
 export default class extends Controller {
   static targets = ['canvas']
+  static values = {
+    data: Object,
+    options: Object
+  }
 
   connect () {
     const element = this.hasCanvasTarget ? this.canvasTarget : this.element
 
     this.chart = new Chart(element.getContext('2d'), this.chartData, {
-      ...this.options,
+      ...this.optionsValue,
       ...this.defaultOptions
     })
   }
@@ -19,21 +23,11 @@ export default class extends Controller {
   }
 
   get chartData () {
-    if (this.data.has('data')) {
-      return JSON.parse(this.data.get('data').replace(/'/g, '"'))
+    if (!this.hasDataValue) {
+      console.warn('[stimulus-chartjs] You need to pass data as JSON to see the chart.')
     }
 
-    console.warn('[stimulus-chartjs] You need to pass data as JSON to see the chart.')
-
-    return {}
-  }
-
-  get options () {
-    if (this.data.has('options')) {
-      return JSON.parse(this.data.get('options').replace(/'/g, '"'))
-    }
-
-    return {}
+    return this.dataValue
   }
 
   get defaultOptions () {

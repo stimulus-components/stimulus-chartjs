@@ -55,10 +55,10 @@
     "@snowpack/plugin-babel": "^2.1.4",
     "prettier-standard": "16.4.1",
     "snowpack": "^2.17.1",
-    "stimulus": "^1.1.1"
+    "stimulus": "^2.0.0"
   },
   "peerDependencies": {
-    "stimulus": "^1.1.1"
+    "stimulus": "^2.0.0"
   },
   "dependencies": {
     "chart.js": "^2.9.4"

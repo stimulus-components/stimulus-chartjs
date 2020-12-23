@@ -4,6 +4,7 @@ import Chart from 'chart.js'
 export default class extends Controller {
   static targets = ['canvas']
   static values = {
+    type: String,
     data: Object,
     options: Object
   }
@@ -11,9 +12,13 @@ export default class extends Controller {
   connect () {
     const element = this.hasCanvasTarget ? this.canvasTarget : this.element
 
-    this.chart = new Chart(element.getContext('2d'), this.chartData, {
-      ...this.optionsValue,
-      ...this.defaultOptions
+    this.chart = new Chart(element.getContext('2d'), {
+      type: this.typeValue || 'line',
+      data: this.chartData,
+      options: {
+        ...this.defaultOptions,
+        ...this.optionsValue
+      }
     })
   }
 

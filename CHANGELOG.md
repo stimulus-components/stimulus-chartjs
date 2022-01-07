@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0] - 2022-01-07
+
+### Chore
+
+- **Breaking** Upgrading Stimulus to `3.x` and change namespace from `stimulus` to `@hotwired/stimulus`.
+- **Breaking** Upgrading Chart.js to `3.x`. See: https://www.chartjs.org/docs/3.7.0/getting-started/v3-migration.html
+- Upgrading dependencies
+- Upgrading Node to 16.
+
 ## [3.0.0] - 2021-05-25
 
 - Moving from Snowpack to Vite

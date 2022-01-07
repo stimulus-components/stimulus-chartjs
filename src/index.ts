@@ -1,5 +1,5 @@
-import { Controller } from 'stimulus'
-import { Chart } from 'chart.js'
+import { Controller } from '@hotwired/stimulus'
+import Chart from 'chart.js/auto'
 
 export default class extends Controller {
   // @ts-ignore
@@ -16,7 +16,10 @@ export default class extends Controller {
 
   static targets: Array<string> = ['canvas']
   static values = {
-    type: String,
+    type: {
+      type: String,
+      default: 'line'
+    },
     data: Object,
     options: Object
   }
@@ -24,9 +27,11 @@ export default class extends Controller {
   connect (): void {
     const element: HTMLCanvasElement = this.hasCanvasTarget ? this.canvasTarget : this.element
 
+    // @ts-ignore
     this.chart = new Chart(element.getContext('2d'), {
-      type: this.typeValue || 'line',
-      data: this.chartData,
+      // @ts-ignore
+      type: this.typeValue, // @ts-ignore
+      data: this.chartData, // @ts-ignore
       options: this.chartOptions
     })
   }

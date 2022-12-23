@@ -6,6 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.0.0] - 2022-12-23
+
+### Added
+
+- Adding `name` in library export to use the package with CDN, Sprockets and `import-maps`.
+
+### Chore
+
+- **Breaking** Upgrading to Chart.js `4.x`.
+- Updating docs UI.
+- Upgrading dependencies.
+- Upgrading Node to `18`.
+
 ## [4.0.0] - 2022-01-07
 
 ### Chore

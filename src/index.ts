@@ -1,9 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 import Chart from 'chart.js/auto'
 
-export default class extends Controller {
-  // @ts-ignore
-  element: HTMLCanvasElement
+export default class extends Controller<HTMLCanvasElement> {
   canvasTarget: HTMLCanvasElement
 
   chart: Chart
@@ -14,25 +12,25 @@ export default class extends Controller {
   hasDataValue: boolean
   hasCanvasTarget: boolean
 
-  static targets: Array<string> = ['canvas']
+  static targets = ['canvas']
   static values = {
     type: {
       type: String,
-      default: 'line'
+      default: 'line',
     },
     data: Object,
-    options: Object
+    options: Object,
   }
 
   connect (): void {
-    const element: HTMLCanvasElement = this.hasCanvasTarget ? this.canvasTarget : this.element
+    const element = this.hasCanvasTarget ? this.canvasTarget : this.element
 
     // @ts-ignore
     this.chart = new Chart(element.getContext('2d'), {
       // @ts-ignore
       type: this.typeValue, // @ts-ignore
       data: this.chartData, // @ts-ignore
-      options: this.chartOptions
+      options: this.chartOptions,
     })
   }
 
@@ -52,7 +50,7 @@ export default class extends Controller {
   get chartOptions (): Chart.ChartOptions {
     return {
       ...this.defaultOptions,
-      ...this.optionsValue
+      ...this.optionsValue,
     }
   }
 

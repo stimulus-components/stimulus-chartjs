@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.0.1] - 2023-12-10
+
+### Chore
+
+- Upgrading Chart.js to latest `4.x`.
+- Bump dependencies
+
 ## [5.0.0] - 2022-12-23
 
 ### Added

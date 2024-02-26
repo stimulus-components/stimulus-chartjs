@@ -1,60 +1,58 @@
-import { Controller } from '@hotwired/stimulus'
-import Chart from 'chart.js/auto'
+import { Controller } from "@hotwired/stimulus"
+import { Chart, ChartType, ChartOptions, ChartData } from "chart.js/auto"
 
-export default class extends Controller<HTMLCanvasElement> {
+export default class Chartjs extends Controller<HTMLCanvasElement> {
   canvasTarget: HTMLCanvasElement
 
   chart: Chart
-  typeValue: Chart.ChartType
-  optionsValue: Chart.ChartOptions
-  dataValue: Chart.ChartData
+  typeValue: ChartType
+  optionsValue: ChartOptions
+  dataValue: ChartData
 
   hasDataValue: boolean
   hasCanvasTarget: boolean
 
-  static targets = ['canvas']
+  static targets = ["canvas"]
   static values = {
     type: {
       type: String,
-      default: 'line',
+      default: "line",
     },
     data: Object,
     options: Object,
   }
 
-  connect (): void {
+  connect(): void {
     const element = this.hasCanvasTarget ? this.canvasTarget : this.element
 
-    // @ts-ignore
-    this.chart = new Chart(element.getContext('2d'), {
-      // @ts-ignore
-      type: this.typeValue, // @ts-ignore
-      data: this.chartData, // @ts-ignore
+    this.chart = new Chart(element.getContext("2d"), {
+      type: this.typeValue,
+      data: this.chartData,
       options: this.chartOptions,
     })
   }
 
-  disconnect (): void {
+  disconnect(): void {
     this.chart.destroy()
     this.chart = undefined
   }
 
-  get chartData (): Chart.ChartData {
+  get chartData(): ChartData {
     if (!this.hasDataValue) {
-      console.warn('[stimulus-chartjs] You need to pass data as JSON to see the chart.')
+      console.warn("[@stimulus-components/chartjs] You need to pass data as JSON to see the chart.")
     }
 
     return this.dataValue
   }
 
-  get chartOptions (): Chart.ChartOptions {
+  get chartOptions(): ChartOptions {
     return {
       ...this.defaultOptions,
       ...this.optionsValue,
     }
   }
 
-  get defaultOptions (): Chart.ChartOptions {
+  get defaultOptions(): ChartOptions {
     return {}
   }
 }

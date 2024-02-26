@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/chartjs",
-  "version": "5.0.1",
+  "version": "6.0.0",
   "description": "A Stimulus controller to deal with chart.js.",
   "keywords": [
     "stimulus",

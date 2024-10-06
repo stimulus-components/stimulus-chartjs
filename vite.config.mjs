@@ -17,10 +17,10 @@ export default defineConfig(({ mode }) => {
         fileName: "stimulus-chartjs",
       },
       rollupOptions: {
-        external: ["chart.js/auto", "@hotwired/stimulus"],
+        external: ["chart.js", "@hotwired/stimulus"],
         output: {
           globals: {
-            "chart.js/auto": "Chart",
+            "chart.js": "Chart",
             "@hotwired/stimulus": "Stimulus",
           },
         },
